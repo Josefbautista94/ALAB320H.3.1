@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState } from "react"; // This allows me to store and manage state inside my component.
 import Learner from "./components/Learner";
 import "./App.css";
 
 function App() {
-  const [learnerData] = useState({
+  const [learnerData] = useState({ // using the useState hook to create state. Here, learnerData will hold an object that contains all the learners and their scores.
+
     learners: [
       {
         name: "Cait Yomorta",
@@ -66,10 +67,10 @@ function App() {
     ],
   });
   return (
-    <div>
+    <div> {/* All React components must return one root JSX element, so we're returning a <div> as the container for everything. */}
       <h1>Rendering Arrays In React!</h1>
-      {learnerData.learners.map((learner, index) => (
-        <Learner key={index} learner={learner} />
+      {learnerData.learners.map((learner, index) => ( //learnerData.learners grabs the array of learners, .map() loops through the array, for each learner, it renders the <Learner /> component.
+        <Learner key={index} learner={learner} /> // key={index} helps React keep track of which item is which, learner={learner} passes the whole learner object as a prop to the Learner component, so it can use the name, bio, and scores.
       ))}
     </div>
   );
